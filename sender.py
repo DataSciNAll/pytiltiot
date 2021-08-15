@@ -9,9 +9,11 @@ def send(data, connstr):
     print 'send', data
     try:
         device_client = IotHubDeviceClient.create_from_connection_string(connstr)
-        r = device_client.send_messages(connstr, data=json.dumps(data))
+        device_client.connect()
+        r = device_client.send_messages(data=json.dumps(data))
+        device_client.disconnect()
         return 201
-    except device_client.exceptions.NoConnectionError:
+    except device_client.exceptions.ConnectionFailedError:
         return False
 
 
@@ -29,15 +31,12 @@ class Sender(object):
             self.send()
 
     def send(self):
-        device_client = IotHubDeviceClient.create_from_connection_string(connstr)
-        device_client.connect()
         pool = Pool(processes=1)
         self.sending = list(self.queue)
         self.queue = []
         result = pool.apply_async(send, args=[self.sending, self.connstr], callback=self.completed)
         pool.close()
         pool.join()
-        device_client.close()
 
     def completed(self, was_sent):
         if was_sent:
