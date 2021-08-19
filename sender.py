@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
 import json
+import os
 from multiprocessing import Pool
 import time
-from azure.iot.device import IotHubDeviceClient
+from azure.iot.device import IoTHubDeviceClient
 
 
 def send(data, connstr):
     print 'send', data
     try:
-        device_client = IotHubDeviceClient.create_from_connection_string(connstr)
+        device_client = IoTHubDeviceClient.create_from_connection_string(connstr)
         device_client.connect()
-        r = device_client.send_messages(data=json.dumps(data))
+        json_data = json.dumps(data)
+        device_client.send_messages(json_data)
         device_client.disconnect()
         return 201
-    except device_client.exceptions.ConnectionFailedError:
+    except Exception:
         return False
 
 
