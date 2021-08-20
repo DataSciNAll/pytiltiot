@@ -12,7 +12,7 @@ def send(data, connstr):
         device_client = IoTHubDeviceClient.create_from_connection_string(connstr)
         device_client.connect()
         json_data = json.dumps(data)
-        device_client.send_messages(json_data)
+        device_client.send_message(json_data)
         device_client.disconnect()
         return 201
     except Exception:
