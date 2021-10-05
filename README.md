@@ -5,13 +5,14 @@ Cloned and rebuilt repo from atlefren/pytilt.  Key contributions are connectivit
 
 Setup Installation
 ------------
-0. git clone https://github.com/DataSciNAll/pytiltiot.git
-1. Install python-bluez: ```sudo apt-get install python-bluez```
-2. Make the bluetooth interface accessible witout being root: ```sudo setcap cap_net_raw+eip /usr/bin/python2.7```
-3. Install Azure CLI onto device: ```curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash```
-4. Create IoT Hub in Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started#create-an-iot-hub
-5. Register device to IoT Hub: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started#register-a-new-device-in-the-iot-hub
-6. Copy Device Connection string and add it to pytilt.service file as ```PYTILT_CONN_STR```: https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/#iothubdeviceconn
+0. Install git ```sudo apt-get install git```
+1. git clone https://github.com/DataSciNAll/pytiltiot.git
+2. Install python-bluez: ```sudo apt-get install python-bluez```
+3. Make the bluetooth interface accessible witout being root: ```sudo setcap cap_net_raw+eip /usr/bin/python2.7```
+4. Install Azure CLI onto device: ```curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash```
+5. Create IoT Hub in Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started#create-an-iot-hub
+6. Register device to IoT Hub: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started#register-a-new-device-in-the-iot-hub
+7. Copy Device Connection string and add it to pytilt.service file as ```PYTILT_CONN_STR```: https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/#iothubdeviceconn
 
 Running
 -----------
