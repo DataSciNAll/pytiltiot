@@ -25,7 +25,10 @@ Running Pytilt in the background and on System Start
 2. sudo chmod 644 /lib/systemd/system/pytilt.service
 3. sudo systemctl daemon-reload
 4. sudo systemctl enable pytilt.service
-5. sudo reboot
+5. Edit your bash profile by running ```nano .bash_profile``` 
+6. Enter your iot device connction string as ```export PYTILT_CONN_STR='<enter connection string here>' exit and save.
+8. sudo reboot
+9. Reconnect to the device and run ```echo $PYTLT_CONN_STR``` to ensure the environment variable is set.
 
 
 Acknowledgements
